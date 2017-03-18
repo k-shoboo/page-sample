@@ -15,6 +15,19 @@
     <body>
         <script>
             console.log("ページ表示開始");
+
+			var test = 'http://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?q=ゲーム&targets=title,description,tags&fields=tags&filters[categoryTags][0]=ゲーム&filters[startTime][gte]=2017-02-17&_sort=-viewCounter&_offset=0&_limit=10&_context=apiguide';
+
+            $.ajax({
+                url       : test,
+                type      : 'GET',
+                dataType  : 'json',
+                success   : function(json) {
+					console.log(json);
+					alert(json);
+				}
+			});
+
         </script>
         <div id="wrapper">
 
