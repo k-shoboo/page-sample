@@ -14,14 +14,15 @@ url += "&order=2";
 // 取得件数
 url += "&count=20";
 
-// スタイル６までしかないので対応するやつに変換する
+// スタイル６までしかないので対応するスタイルに変換する
 function createStyle(i) {
     var num = 0;
     var aa = Math.floor(i / 6);
     num = parseInt(i) - parseInt(6 * parseInt(aa)) + 1;
     return "style" + num;
 }
-// １〜１２
+
+// 表示用画像が１２までしかないので対応する画像に変換する
 function createImage(i) {
     var num = 0;
     var aa = Math.floor(i / 6);
@@ -35,8 +36,12 @@ function createImage(i) {
 }
 
 // 全部入らないから20文字くらいで区切る
-function createDescription( text ) {
+function cutDescription( text ) {
     return text.slice(0, 40) + "...";
+}
+
+function cutAddress( address ) {
+    return address.slice(0, 10) + "...";
 }
 
 // 取得した日付を表示用に整形する
@@ -56,6 +61,8 @@ $.ajax({
                     
                     var events = json.events;
 
+                    console.log(events);
+
                     for( var k in events ) {
 
                         $('.tiles').append(
@@ -64,7 +71,8 @@ $.ajax({
                             + '</span><a href="' + events[k]["event_url"] + '">'
                             + '<h2>' + adjustDate(events[k]["started_at"]) + events[k]["title"] + '</h2>'
                                     + '<div class="content">'
-                                        + '<p>' + createDescription(events[k]["description"]) + '</p>'
+                                        + '<p>' + cutDescription(events[k]["description"]) + '</p>'
+                                        + '<p>【場所】' + cutAddress(events[k]["address"]) + '</p>'
                                     + '</div>'
                                 + '</a>'
                             + '</article>');
