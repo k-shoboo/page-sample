@@ -19,12 +19,12 @@ function createDescription( text ) {
 }
 
 
-// var endPoint = "http://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search";
-// var keyword  = "?q=" + "ゲーム";
-// var keyword2 = "?q=";
-var endPoint = "http://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?callback=?";
-var keyword  = "&q=" + "ゲーム";
-var keyword2 = "&q=";
+var endPoint = "http://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search";
+var keyword  = "?q=" + "ゲーム";
+var keyword2 = "?q=";
+// var endPoint = "http://api.search.nicovideo.jp/api/v2/snapshot/video/contents/search?callback=?";
+// var keyword  = "&q=" + "ゲーム";
+// var keyword2 = "&q=";
 
 var targets  = "&targets=title,description,tags";
 var targets2 = "&targets=tags";
